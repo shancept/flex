@@ -128,8 +128,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
         $disable = true;
         foreach (array_merge($composer->getPackage()->getRequires() ?? [], $composer->getPackage()->getDevRequires() ?? []) as $link) {
             // recipes apply only when symfony/flex is found in "require" or "require-dev" in the root package
-            var_dump($link->getTarget());
-            if ('symfony/flex' === $link->getTarget()) {
+            if ('shancept/flex' === $link->getTarget()) {
                 $disable = false;
                 break;
             }
