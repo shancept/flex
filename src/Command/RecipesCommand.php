@@ -173,7 +173,7 @@ class RecipesCommand extends BaseCommand
         $lockBranch = $recipeLock['recipe']['branch'] ?? null;
         $lockVersion = $recipeLock['recipe']['version'] ?? $recipeLock['version'] ?? null;
 
-        if ('master' === $lockBranch && \in_array($lockRepo, ['github.com/symfony/recipes', 'github.com/symfony/recipes-contrib'])) {
+        if ('master' === $lockBranch && \in_array($lockRepo, ['github.com/shancept/recipes', 'github.com/shancept/recipes-contrib'])) {
             $lockBranch = 'main';
         }
 

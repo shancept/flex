@@ -30,6 +30,7 @@ class Downloader
 {
     private const DEFAULT_ENDPOINTS = [
         'https://raw.githubusercontent.com/shancept/recipes/flex/main/index.json',
+        'https://raw.githubusercontent.com/shancept/recipes-contrib/flex/main/index.json',
 //        'https://raw.githubusercontent.com/symfony/recipes/flex/main/index.json',
 //        'https://raw.githubusercontent.com/symfony/recipes-contrib/flex/main/index.json',
     ];
