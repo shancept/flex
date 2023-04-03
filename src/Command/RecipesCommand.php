@@ -92,6 +92,14 @@ class RecipesCommand extends BaseCommand
         $recipes = $this->flex->fetchRecipes($operations, false);
         ksort($recipes);
 
+        foreach ($recipes as $recipe) {
+            $this->getIO()->write('=====');
+            $this->getIO()->write($recipe->getName());
+            $this->getIO()->write((string)$recipe->getRef());
+            $this->getIO()->write($recipe->getURL());
+            $this->getIO()->write((string)json_encode($recipe->getManifest(), JSON_THROW_ON_ERROR));
+        }
+
         $nbRecipe = \count($recipes);
         if ($nbRecipe <= 0) {
             $this->getIO()->writeError('<error>No recipe found</error>');
