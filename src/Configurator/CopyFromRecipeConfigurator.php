@@ -114,6 +114,13 @@ class CopyFromRecipeConfigurator extends AbstractConfigurator
         $basePath = $options['root-dir'] ?? '.';
         $copiedFile = $this->getLocalFilePath($basePath, $to);
 
+
+        $this->io->write('shouldWriteFile');
+        $this->io->write($to);
+        $this->io->write($overwrite);
+        $this->io->write($contents);
+        $this->io->write($this->options->shouldWriteFile($to, $overwrite));
+
         if (!$this->options->shouldWriteFile($to, $overwrite)) {
             return $copiedFile;
         }
