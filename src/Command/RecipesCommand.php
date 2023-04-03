@@ -98,6 +98,7 @@ class RecipesCommand extends BaseCommand
             $this->getIO()->write((string)$recipe->getRef());
             $this->getIO()->write($recipe->getURL());
             $this->getIO()->write((string)json_encode($recipe->getManifest(), JSON_THROW_ON_ERROR));
+            $this->getIO()->write((string)json_encode($recipe->getFiles(), JSON_THROW_ON_ERROR));
         }
 
         $nbRecipe = \count($recipes);
