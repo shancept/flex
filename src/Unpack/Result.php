@@ -50,6 +50,6 @@ class Result
     public function getRequired(): array
     {
         // we need at least one package for the command to work properly
-        return $this->required ?: ['symfony/flex'];
+        return $this->required ?: ['shancept/flex'];
     }
 }

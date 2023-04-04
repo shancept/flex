@@ -225,7 +225,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
     public function configureProject(Event $event)
     {
         if (!$this->downloader->isEnabled()) {
-            $this->io->writeError('<warning>Project configuration is disabled: "symfony/flex" not found in the root composer.json</>');
+            $this->io->writeError('<warning>Project configuration is disabled: "shancept/flex" not found in the root composer.json</>');
 
             return;
         }
@@ -255,7 +255,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
 
     public function recordFlexInstall(PackageEvent $event)
     {
-        if (null === $this->reinstall && 'symfony/flex' === $event->getOperation()->getPackage()->getName()) {
+        if (null === $this->reinstall && 'shancept/flex' === $event->getOperation()->getPackage()->getName()) {
             $this->reinstall = true;
         }
     }
@@ -528,7 +528,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
     public function fetchRecipes(array $operations, bool $reset): array
     {
         if (!$this->downloader->isEnabled()) {
-            $this->io->writeError('<warning>Symfony recipes are disabled: "symfony/flex" not found in the root composer.json</>');
+            $this->io->writeError('<warning>Symfony recipes are disabled: "shancept/flex" not found in the root composer.json</>');
 
             return [];
         }
@@ -537,7 +537,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
         $manifests = $data['manifests'] ?? [];
         $locks = $data['locks'] ?? [];
         // symfony/flex recipes should always be applied first
-        $flexRecipe = [];
+        $flexRecipe = []; //todo
         // symfony/framework-bundle recipe should always be applied first after the metapackages
         $recipes = [
             'symfony/framework-bundle' => null,
@@ -598,7 +598,7 @@ class Flex implements PluginInterface, EventSubscriberInterface
                     $packRecipes[$name] = $recipe;
                 } elseif ('metapackage' === $package->getType()) {
                     $metaRecipes[$name] = $recipe;
-                } elseif ('symfony/flex' === $name) {
+                } elseif ('shancept/flex' === $name) {
                     $flexRecipe = [$name => $recipe];
                 } else {
                     $recipes[$name] = $recipe;
